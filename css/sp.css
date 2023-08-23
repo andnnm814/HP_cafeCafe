@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 896px) {
+
+.contact header nav .g_nav {
+	display: none;
+}
+.contact header nav .sp_nav_motion {
+	top: 65px;
+}
+header nav .g_nav {
+	display: none;
+}
+header nav .sp {
+	display: block;
+}
+header nav .sp_nav {
+	box-shadow: 0 10px 25px 0 rgba(100, 100, 100, 0.5);
+}
+header nav .sp_nav a {
+	display: block;
+}
+header nav .sp_nav_motion {
+	top: 65px;
+}
+header nav .sp_menu {
+	display: block;
+}
+header nav .sp img {
+	width: 50px;
+}
+header nav .signin {
+	display: none;
+}
+.cafe_intro {
+	grid-template-columns: repeat(2, 1fr);
+}
+.cafe_local {
+	grid-template-columns: repeat(2, 1fr);
+}
+.goto_text {
+	top: 25;
+	left: 25;
+}
+.goto_text h3 {
+	font-size: 32px;
+}
+.goto_text p {
+	font-size: 1.2rem;
+}
+
+#signin_box {
+	width: 60%;
+}
+.contact_box {
+	width: 90%;
+}
+
+}
+
+@media screen and (max-width: 700px) {
+
+header h1.concept {
+	font-size: 48px;
+}
+.goto_text {
+	position: static;
+}
+footer .nav_area {
+	display: block;
+}
+footer .inner h2 {
+	border-bottom: 1px solid #ccc;
+}
+
+}
+
+@media screen and (max-width: 480px) {
+
+header h1.concept {
+	font-size: 32px;
+}
+.cafe_intro {
+	display: block;
+}
+
+.cafe_exp {
+	grid-template-columns: repeat(2, 1fr);
+}
+.cafe_host {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+#signin_box {
+	width: 80%;
+}
+.contact_box {
+	width: 98%;
+}
+
+}

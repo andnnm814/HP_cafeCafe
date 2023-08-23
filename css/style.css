@@ -1,0 +1,654 @@
+@charset "UTF-8";
+
+/*---Reset---*/
+body, h1, h2, h3, h4, h5, h6, p, address,
+ul, ol, li, dl, dt, dd, img, form, table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	text-align: left;
+	list-style-type: none;
+	border-collapse: collapse;
+}
+
+textarea { font-size: 100%; vertical-align:middle;}
+hr { display: none; }
+em{font-style: normal}
+input{line-height:auto;vertical-align:middle;}
+strong.more{color:#c30}
+a{text-decoration: none;}
+
+body {
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+/*クラス定義*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+	display: inline-table;
+}
+
+
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+*+html .clearfix{min-height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+._click:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+/*--- ページ基本デザイン ---*/
+.alert {
+	position: relative;
+	top: 0;
+	z-index: 1;
+	background-color: black;
+	width: 100%;
+	text-align: center;
+	padding: 18px;
+	color: white;
+	font-size: 14px;
+	box-shadow: 5px 5px 5px 680px rgba(180,180,180,0.3);
+}
+.alert a {
+	text-decoration: underline;
+	color: white;
+}
+.alert a:hover {
+	opacity: 0.9;
+}
+
+.jump {
+	position: fixed;
+	right: 0;
+	bottom:0;
+	height: 3rem;
+	line-height: 3rem;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	background-color: black;
+	padding: 0 10px;
+	transition: all .3s ease;
+}
+.jump.v-enter, .jump.v-leave {
+	height: 0;
+	padding: 0 10px;
+	opacity: 0;
+}
+
+#signin_box {
+	z-index: 999;
+	margin-top: 50vh;
+	opacity: 0;
+	width: 40%;
+	background-color: white;
+	border-radius: 12px;
+}
+#signin_box h2 {
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ccc;
+}
+#signin_box dl {
+	padding: 20px;
+}
+#signin_box dd {
+	padding: 5px 0;
+}
+#signin_box dd input {
+	width: 100%;
+	font-size: 1.2rem;
+	padding: 10px 2.5px;
+	border-radius: 8px;
+	border: 1px solid #aaa;
+}
+#signin_box dd button {
+	color: white;
+	background-color: rgb(215, 4, 102);
+	width: 100%;
+	font-size: 1.2rem;
+	padding: 10px 2.5px;
+	border: 0;
+	border-radius: 8px;
+	cursor: pointer;
+}
+#signin_box dl.sns {
+	border-width: 90%;
+	border-top: 1px solid #ccc;
+}
+#signin_box .sns dd img {
+	width: 1.5rem;
+}
+#signin_box .sns dd button {
+	color: black;
+	background-color: white;
+	width: 100%;
+	font-size: 1.2rem;
+	padding: 10px 2.5px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+#overlay {
+	z-index: 998;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header {
+	position: relative;
+	width: 100%;
+	min-height: 680px;
+	background-size: cover;
+	background-position: center;
+	background-image: url("../img/eyecatch.jpg");
+}
+header nav {
+	position: relative;
+	top: 0;
+	margin: auto;
+	width: 100%;
+	padding: 0 5%;
+	background-color: transparent;
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 15px;
+	color: white;
+	transition: all .5s ease;
+}
+header nav a {
+	color: white;
+}
+.motion {
+	background-color: rgba(0,0,0,0.8);
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	transition: all .5s ease;
+}
+header nav .logo {
+	flex: 25%;
+	color: white;
+    font-weight: bold;
+	font-size: 32px;
+}
+header nav .logo img {
+	vertical-align: middle;
+}
+header nav .g_nav {
+	flex: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	line-height: 50px;
+}
+header nav .g_nav .menu {
+	padding: 0 25px;
+	cursor: pointer;
+}
+header nav .sign {
+	flex: 25%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	line-height: 50px;
+}
+header nav .sp {
+	display: none;
+}
+header nav .sp_nav {
+	position: fixed;
+	top: 125px;
+	width: 12.5rem;
+	background-color: white;
+	border-radius: 8px;
+}
+header nav .sp_nav a {
+	color: black;
+}
+header nav .sp_menu {
+	color: black;
+	padding: 0 1rem;
+}
+header nav .sp_signin {
+	color: black;
+	padding: 0 1rem;
+	border-bottom: 1px solid #ccc;
+}
+header nav .signup {
+	margin-right: 20px;
+}
+header h1.concept {
+	width: 90%;
+	margin: auto;
+	position: absolute;
+	top: 250px;
+	left: 5%;
+	color: white;
+	font-size: 64px;
+	line-height: 64px;
+	font-weight: bold;
+}
+
+header.contact {
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+	background-image: none;
+}
+header.contact nav.motion {
+	position: relative;
+}
+
+section {
+	margin: 40px 0;
+	padding: 0 5%;
+}
+.bg_white {
+	background-color: white;
+	color: black;
+}
+.bg_black {
+	background-color: black;
+	color: white;
+	padding: 40px 5%;
+}
+main {
+	margin: 80px 0 60px;
+}
+section h2 {
+	font-size: 32px;
+	font-weight: bold;
+}
+section p {
+	font-size: 14px;
+	font-weight: 900;
+}
+
+/* はじめに */
+.cafe_intro {
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+.cafe_intro .box {
+	padding: 10px 0;
+}
+.cafe_intro .info {
+	display: flex;
+	justify-content: flex-start;
+}
+.cafe_intro .photo {
+	width: 64px;
+	height: 64px;
+}
+.cafe_intro .photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+.cafe_intro .access {
+	padding: 5px 15px;
+}
+.access .area {
+	font-weight: bold;
+}
+
+
+/* 体験 */
+.cafe_local {
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 15px;
+}
+.cafe_local .box {
+	padding: 10px 0;
+}
+.cafe_local .info {
+}
+.cafe_local .photo {
+}
+.cafe_local .photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+.cafe_local .text {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+.goto {
+	margin-top: 40px;
+	opacity: 0.9;
+	position: relative;
+}
+.goto_text {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	background-color: rgba(255,255,255,0.3);
+	padding: 10px;
+}
+.goto_text h3 {
+	font-size: 42px;
+	font-weight: bold;
+	color: black;
+}
+.goto_text p {
+	font-size: 18px;
+	font-weight: 100;
+	color: black;
+}
+
+/* 体験 */
+.cafe_exp {
+	margin: 15px auto 0 auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 15px;
+}
+.cafe_exp .box {
+	padding: 10px 0;
+}
+.cafe_exp .info {
+}
+.cafe_exp .photo {
+}
+.cafe_exp .photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+.cafe_exp .text {
+	font-size: 18px;
+	font-weight: bold;
+}
+.cafe_exp p {
+	font-size: 14px;
+	font-weight: 100;
+}
+
+/* ホスト */
+.cafe_host {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 15px;
+}
+.cafe_host .box {
+	padding: 10px 0;
+}
+.cafe_host .info {
+}
+.cafe_host .photo {
+}
+.cafe_host .photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+.cafe_host .text {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+footer {
+	border-top: 1px solid #ddd;
+	background-color: #f7f7f7;
+	padding: 4% 0;
+}
+footer .outer {
+	width: 90%;
+	margin: auto;
+	font-size: 0.9rem;
+}
+footer .nav_area {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+footer .inner {
+	flex: auto;
+}
+footer .inner a {
+	color: #333;
+}
+footer .inner h2 {
+	font-weight: bold;
+}
+footer .inner li {
+	margin: 1rem 0;
+}
+footer .reserved {
+	padding-top: 2%;
+	color: #333;
+	border-top: 1px solid #ccc;
+}
+
+
+.contact_box {
+	width: 70%;
+    margin: 5% auto;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+}
+.contact_box form {
+	margin: 3%;
+}
+.contact_box p {
+	font-weight: normal;
+}
+.contact_box .required {
+	color: red;
+}
+.contact_box h2 {
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ccc;
+}
+.contact_box h3 {
+	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eaeaea));
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	padding: 1%;
+	margin: 1% 0;
+}
+.contact_box dl {
+	margin: 2% 0;
+}
+.contact_box dd {
+	padding: 0.5% 0 1%;
+	font-size: 1.2rem;
+}
+.contact_box dd.error {
+	padding: 0;
+	color: red;
+	font-size: 1rem;
+}
+.contact_box input {
+	width: 100%;
+	font-size: 1.2rem;
+	padding: 10px 2.5px;
+	border-radius: 8px;
+	border: 1px solid #aaa;
+}
+.contact_box textarea {
+	resize: none;
+	width: 100%;
+	height: 33vh;
+	font-size: 1.2rem;
+	padding: 10px 2.5px;
+	border-radius: 8px;
+	border: 1px solid #aaa;
+}
+.contact_box button {
+	color: white;
+	background-color: rgb(215, 4, 102);
+	width: 100%;
+	font-size: 1.2rem;
+	padding: 10px 2.5px;
+	border: 0;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.contact_box .confirm dt {
+	margin-top: 1rem;
+	border-bottom: 1px solid #ccc;
+}
+.contact_box .confirm dd {
+	padding: 1%;
+}
+.contact_box .confirm dd.confirm_btn {
+	padding: 1% 0;
+	display: flex;
+	justify-content: space-between;
+	
+}
+.contact_box .confirm dd.confirm_btn button {
+	margin-right: 10px;
+}
+.contact_box .confirm dd.confirm_btn a {
+	width: 100%;
+	text-align: center;
+	line-height: 40px;
+	margin-left: 10px;
+	background-color: transparent;
+	border: 2px solid #066;
+	border-radius: 8px;
+	cursor: pointer;
+	color: #066;
+}
+.complete_msg {
+	padding: 3%;
+}
+.complete_msg a {
+	display: block;
+	margin-top: 10px;
+	text-decoration: underline;
+}
+
+.userList{
+	width:100%;
+}
+
+.userList th{
+	text-align: center;
+}
+
+.editButton{
+	display: flex;
+}
+
+.deleteHopUp{
+	display: none;
+	width: 100vw;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.HopUp{
+	background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
+
+/* テーブル */
+.db-table{
+	width: 90%;
+	margin: 0 auto 50px;
+	font-size: 1rem;
+
+}
+
+th,td{
+	border: solid 1px;
+	padding: 5px;
+	overflow-wrap: normal;
+	width: 14%;
+}
+
+.table-item>th{
+	text-align: center;
+	background-color: rgb(197, 195, 195);
+	font-weight: bold;
+}
+
+/* 削除ポップ */
+#deletePop{
+	display: none;
+	position: fixed;
+	top: 40%;
+	left: 40%;
+	width: 250px;
+	height: 100px;
+	background-color: rgba(234, 234, 234, 0.93);
+	padding: 20px;
+	border: solid 1px rgb(136, 135, 135);
+	z-index: 2;
+
+}
+
+
+#delete_message{
+	margin-bottom: 10px;
+}
+
+#overlay{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.44);
+	display: none;
+	z-index: 1;
+}
+
+.active{
+	display: block !important;
+}
